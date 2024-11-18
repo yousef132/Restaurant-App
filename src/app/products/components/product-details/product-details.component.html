@@ -1,0 +1,57 @@
+<!-- @if (product) {
+    <div class="box">
+      <div class="row" *ngIf="!isLoading">
+        <div class="col-md-5 col-sm-12">
+          <img [src]="product.image" alt="">
+        </div>
+        <div class="col-md-7 col-sm-12">
+          <div class="info">
+            <ul class="list-unstyled">
+              <li><strong>Title :</strong>{{product.title}}</li>
+              <li><strong>Category :</strong>{{product.category}}</li>
+              <li><strong>Description :</strong>{{product.description}}</li>
+              <li><strong>Rate :</strong>{{product.rating.rate}}</li>
+              <li><strong>Count :</strong>{{product.rating.count}}</li>
+              <li><strong>price :</strong>{{product.price}}</li>
+            </ul>
+          </div>
+        </div>
+        <app-spinner *ngIf="isLoading"></app-spinner>
+      </div>
+    </div>
+  } -->
+
+<div class="container my-5">
+  <app-spinner *ngIf="isLoading"></app-spinner>
+
+  <div class="row align-items-center" *ngIf="!isLoading">
+    <div class="col-md-5 col-sm-12 text-center mb-4 mb-md-0" style="box-shadow: none!important;">
+      <img [src]="product.imagePath" alt="{{ product.name }}" class="img-fluid rounded product-image shadow-sm" />
+    </div>
+
+    <div class="col-md-7 col-sm-12">
+      <div class="info">
+        <h2 class="text-danger mb-3">{{ product.name }}</h2>
+        <ul class="list-unstyled">
+          <li>
+            <strong class="text-secondary">Category:</strong>
+            <span class="text-dark">{{ product.category }}</span>
+          </li>
+          <li class="mt-2">
+            <strong class="text-secondary">Description:</strong>
+            <p class="text-muted mt-1">{{ product.description }}</p>
+          </li>
+          <li class="mt-2">
+            <strong class="text-secondary">Price:</strong>
+            <span class="text-danger fs-4 fw-bold">{{ product.price | currency }}</span>
+          </li>
+        </ul>
+      </div>
+      <div class="mt-4">
+        <button class="btn btn-success btn-lg">
+          Add to Cart <i class="bi bi-cart-plus ms-2"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

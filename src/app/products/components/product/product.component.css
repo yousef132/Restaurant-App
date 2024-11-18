@@ -1,0 +1,59 @@
+/* Style for each card item */
+.item {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column; /* Flexbox to align children vertically */
+  height: 100%; /* Makes sure the card takes full height */
+}
+
+.item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.item img {
+  object-fit: cover;
+  height: 200px; /* Adjust height for the images */
+  width: 100%;
+}
+
+.card-body {
+  padding: 15px;
+  flex-grow: 1; /* This allows the body to expand and take available space */
+}
+
+.card-title {
+  font-size: 1.25rem;
+  color: #2878EB; /* Custom color preference */
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #333;
+  max-height: 60px; /* Adjust as needed */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-footer {
+  padding: 10px 15px;
+  background-color: white;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #FF70B1; /* Custom color for price */
+}
+
+/* Fixed image height */
+.fixed-image {
+  height: 200px;
+  object-fit: cover;
+  width: 100%;
+}

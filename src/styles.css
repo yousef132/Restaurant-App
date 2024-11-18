@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+  padding: 0;
+  margin: 0!important;
+}
+*{
+  font-family: cursive;
+}
+/* a {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  color: #fbaf32;
+  transition: .3s;
+} */

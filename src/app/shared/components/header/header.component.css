@@ -1,0 +1,41 @@
+nav {
+  background: white;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+}
+
+nav .content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  position: relative;
+}
+li a{
+
+  margin-right: 50px;
+  font-weight: bold;
+}
+
+nav .content ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  width: 20%;
+  margin: 0;
+  transition: max-height 0.3s ease-out;
+}
+
+nav .content ul li {
+  cursor: pointer;
+  font-size: 22px;
+  color: #FFF;
+  text-decoration: none;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 24px;
+  color: #FFF;
+  cursor: pointer;
+}
+

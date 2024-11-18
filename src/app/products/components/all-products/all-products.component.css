@@ -1,0 +1,80 @@
+/* General Styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.box {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -15px;  /* Negative margin to counteract the padding of columns */
+}
+
+.col-md-3,
+.col-sm-12 {
+  padding: 15px;  /* Adds padding around each column */
+}
+
+.app-product {
+  transition: transform 0.3s ease-in-out;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.app-product:hover {
+  transform: translateY(-5px);
+}
+
+/* Spinner Style */
+.app-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Adjust for small screens */
+@media (max-width: 576px) {
+  .my-2 {
+    width: 100%;
+  }
+
+  .w-25 {
+    width: 100%;
+  }
+}
+
+@media (min-width: 992px) {
+  .col-md-3 {
+    max-width: 25%;
+  }
+}
+
+/* Horizontal spacing between cards */
+.row > .col-md-3 {
+  margin-right: 15px;  /* Adds horizontal space between cards */
+}
+
+.row > .col-md-3:last-child {
+  margin-right: 0;  /* Removes right margin on the last card */
+}
+
+.row {
+  justify-content: flex-start;
+}
+
+@media (max-width: 768px) {
+  .col-md-3 {
+    max-width: 100%;  /* Stacks items on smaller screens */
+  }
+
+  .row > .col-md-3 {
+    margin-right: 0;  /* No horizontal margin on small screens */
+  }
+}
