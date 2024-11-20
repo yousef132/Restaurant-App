@@ -17,7 +17,7 @@ export class ProductComponent {
   addButton:boolean = false;
   quantity:any=0;
   add(){
-    
+
     if(this.quantity == 0){
       alert("Please enter the quantity");
     }else{
@@ -25,4 +25,5 @@ export class ProductComponent {
       this.quantity = "";
     }
   }
+
 }

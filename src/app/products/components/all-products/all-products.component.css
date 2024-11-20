@@ -78,3 +78,27 @@
     margin-right: 0;  /* No horizontal margin on small screens */
   }
 }
+/* Ensure the modal dialog is properly centered on all screens */
+.modal-dialog {
+  max-width: 60%; /* Default for larger screens */
+}
+
+@media (max-width: 675px) {
+  .modal-dialog {
+    max-width: 90%; /* Make the modal width adapt to smaller screens */
+    margin: 0 auto; /* Center it horizontally */
+    top: 50%; /* Center it vertically */
+    transform: translateY(-50%);
+  }
+}
+.draggable-modal {
+  position: relative;
+  cursor: move; /* Indicates a draggable cursor */
+  user-select: none; /* Prevents text selection during dragging */
+}
+
+.modal-content {
+  position: absolute; /* Allows free positioning for dragging */
+  top: 0;
+  left: 0;
+}

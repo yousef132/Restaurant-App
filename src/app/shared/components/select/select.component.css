@@ -1,0 +1,22 @@
+/* Add hover effect */
+.category-item {
+  border-radius: 5px;
+  padding: 20px;
+  background-color: #f5f5f5;
+  flex: 0 0 auto;
+  width: 160px;
+  height: 175px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.category-item:hover {
+  transform: scale(1.1);
+}
+
+/* Active state styling */
+.category-item.active {
+  background-color: #ffcc00; /* Active color */
+  color: #000; /* Black text for contrast */
+  font-weight: bold; /* Emphasize active state */
+}

@@ -1,5 +1,4 @@
-/* General Styling */
-body {
+/* body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
   color: #333;
@@ -7,24 +6,23 @@ body {
 
 .cart-header {
   font-weight: bold;
-  color: #8B4513; /* Brown color */
+  color: #8B4513;
 }
 
 .cart-info {
   font-size: 1.2rem;
-  color: #343a40; /* Dark gray for text */
+  color: #343a40;
 }
 
 .cart-total {
   font-size: 1.5rem;
-  color: #28a745; /* Green for total */
+  color: #28a745;
 }
 
 .text-warning {
-  color: #8B4513; /* Brown color for warning (Total) */
+  color: #8B4513;
 }
 
-/* Button Styles */
 .btn-outline-danger {
   border-color: #fbaf32;
   color: #fbaf32;
@@ -55,39 +53,35 @@ body {
   color: white;
 }
 
-/* Table Styling */
 .table {
   width: 100%;
-  border: 2px solid #ddd; /* Keep table border */
-  background-color: #fff; /* White background for the table */
+  border: 2px solid #ddd;
+  background-color: #fff;
 }
 
 .table th,
 .table td {
   padding: 10px;
   text-align: center;
-  border: 2px solid #ddd; /* Border for each cell */
+  border: 2px solid #ddd;
 }
 
-/* Differentiated Row Colors */
 .table tbody tr:nth-child(odd) {
-  background-color: #fff5e1; /* Light yellowish */
+  background-color: #fff5e1;
 }
 
 .table tbody tr:nth-child(even) {
-  background-color: #f1f8e9; /* Very light green */
+  background-color: #f1f8e9;
 }
 
-/* Cart Image Styling (No border around images) */
 .cart-image {
   max-width: 100px;
   max-height: 100px;
   width: auto;
   height: auto;
-  border: none; /* No border around the image */
+  border: none;
 }
 
-/* Quantity Input */
 .quantity-input {
   width: 60px;
   text-align: center;
@@ -99,26 +93,72 @@ body {
   align-items: center;
 }
 
-/* Cart Total Section Styling */
 .cart-total {
   font-size: 1.5rem;
   font-weight: bold;
 }
 
 .cart-total .text-warning {
-  color: #8B4513; /* Brown */
+  color: #8B4513;
 }
 
 .text-primary {
-  color: #fbaf32; /* Brown */
+  color: #fbaf32;
 }
 
 .text-info {
-  color: #0dcaf0; /* Light blue for info messages */
+  color: #0dcaf0;
 }
 
-/* Alert Styling */
+
 .alert-success {
   background-color: #d4edda;
   color: #155724;
+} */
+
+
+.cart-item {
+  transition: box-shadow 0.3s ease;
+}
+
+.cart-item:hover {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item img {
+  object-fit: cover;
+}
+
+.cart-total {
+  font-size: 1.2rem;
+}
+
+button.btn-warning {
+  background-color: #ffc107;
+  border: none;
+  font-weight: bold;
+}
+
+button.btn-warning:hover {
+  background-color: #e0a800;
+}
+/* Adjust the cart layout for small screens */
+@media (max-width: 675px) {
+  /* Center the cart items container */
+  .cart-item {
+    width: 100%; /* Make items take full width */
+    max-width: 300px; /* Restrict max width */
+    margin: 0 auto; /* Center the items */
+  }
+
+  /* Adjust the total and order button layout */
+  .d-flex.flex-column.flex-md-row {
+    flex-direction: column; /* Stack content vertically */
+    text-align: center; /* Center-align text and content */
+  }
+
+  .d-flex.flex-column.flex-md-row button {
+    width: 100%; /* Full width for buttons */
+    margin-top: 10px; /* Add spacing between sections */
+  }
 }

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ProductsService } from '../../../products/services/products.service';
 import { CartsService } from '../../services/carts.service';
@@ -17,14 +17,28 @@ export class CartComponent implements OnInit {
   cartProducts: any[]=[];
   totalAmount: number = 0;
   orderCreated:boolean = false;
+  @Input() eventFromParent!: EventEmitter<any>;
+
   constructor( private cartsService:CartsService) {
 
   }
+
+
   ngOnInit(): void {
-    this.getCartProducts();
+    let fired = false;
+    this.eventFromParent.subscribe((data) => {
+      fired = true;
+      this.cartProducts = data;
     this.calculateTotalAmount();
-    console.log(this.totalAmount);
+
+    });
+    if(!fired){
+      this.getCartProducts();
+    }
+    this.calculateTotalAmount();
+    console.log(this.totalAmount)
   }
+
   getCartProducts() {
     if ('cart' in localStorage) {
       this.cartProducts = JSON.parse(localStorage.getItem('cart')!);
@@ -37,7 +51,6 @@ export class CartComponent implements OnInit {
         this.cartProducts[x].item.price * this.cartProducts[x].quantity;
     }
   }
-
   decreaseQuantity(index: any) {
     if (this.cartProducts[index].quantity == 1) {
       this.removeFromCart(index);
@@ -56,8 +69,8 @@ export class CartComponent implements OnInit {
 
   clearCart() {
     this.cartProducts = [];
-    this.calculateTotalAmount();
     localStorage.setItem('cart', JSON.stringify(this.cartProducts));
+    this.calculateTotalAmount();
   }
 
   updateQuantity(index: number, amount: any) {
@@ -78,27 +91,8 @@ export class CartComponent implements OnInit {
     localStorage.setItem('cart', JSON.stringify(this.cartProducts));
   }
   orderNow() {
-    console.log("hello");
-    let order = {
-      userId: 5,
-      date: new Date(),
-      products: this.cartProducts.map(function(item,index){
-        return {
-          productId: item.item.id,
-          quantity: item.quantity
-        }
-      }),
-    };
-    console.log(order);
-    this.cartsService.createOrder(order).subscribe({
-      next: (res)=>{
-        this.orderCreated = true;
-        this.cartProducts = [];
-        localStorage.setItem('cart', JSON.stringify(this.cartProducts));
-      },
-      error: (err)=>{
-        alert(err.error.message);
-      }
-    })
+    this.totalAmount = 0;
+    alert("order Created");
+    this.clearCart();
   }
 }
