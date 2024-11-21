@@ -6,12 +6,12 @@ import { Injectable } from '@angular/core';
 })
 export class CartsService {
 
-  API_URL = 'https://fakestoreapi.com/carts';
+  API_URL = 'https://localhost:7203/api/Order';
   constructor(private client:HttpClient) {
 
    }
 
    createOrder(order:any){
-    return this.client.post(this.API_URL,order);
+    return this.client.post(this.API_URL,order,{responseType:'blob' ,observe:'response'});;
    }
 }

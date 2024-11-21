@@ -12,7 +12,8 @@ nav .content {
 }
 li a{
 
-  margin-right: 50px;
+  margin-left: 25px;
+  margin-right: 25px;
   font-weight: bold;
 }
 

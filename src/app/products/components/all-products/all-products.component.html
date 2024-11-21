@@ -1,60 +1,62 @@
-
-<div class="container mt-3">
-  <div class="d-flex justify-content-between">
+<div class="container-fluid mt-3">
+  <div class="d-flex justify-content-between gap-3">
     <!-- Left Section (Select component) -->
-    <div class="w-15" > <!-- Adjust width to fit your needs -->
+    <div class="w-15"> <!-- Adjust width to fit your needs -->
       <app-select (event)="filter($event)" [categories]="categories" [title]="'Categories'"></app-select>
     </div>
 
     <!-- Right Section (Product and Cart) -->
-    <div class="w-80" style="margin-left: 30px;">
+    <div class="w-80" >
       <!-- Product List Section -->
       <div class="row">
-        <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3" *ngFor="let item of products;">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 cursor-pointer" *ngFor="let item of products;">
           <!-- Clicking a product opens the modal with product details -->
           <app-product [product]="item" (event)="addToCart($event)" (click)="openProductModal(item.id)"></app-product>
         </div>
       </div>
-
-      <!-- Cart Section -->
-
-      <!-- Loading Spinner -->
       <app-spinner *ngIf="isLoading"></app-spinner>
     </div>
   </div>
-  <app-cart [eventFromParent]="parentevent"></app-cart>
+  <app-cart [cartProducts]="cartProducts"></app-cart>
 
 </div>
 
 
-<div *ngIf="showModal" class="modal fade show" tabindex="-1" role="dialog" aria-labelledby="productModalLabel" aria-hidden="true" style="display: block;">
+<div *ngIf="showModal" class="modal fade show" tabindex="-1" role="dialog" aria-labelledby="productModalLabel"
+  aria-hidden="true" style="display: block;">
   <div class="modal-dialog modal-dialog-centered draggable" role="document">
     <div class="modal-content">
-      <div class="modal-header">
+
+      <div class="modal-header justify-content-between">
         <h5 class="modal-title" id="productModalLabel">{{ selectedProduct?.item.name }}</h5>
-        <button type="button" class="btn-close" (click)="closeModal()" aria-label="Close"></button>
+        <button type="button" class="btn-close" (click)="closeModal()" style="margin:0" aria-label="Close"></button>
       </div>
+
       <div class="modal-body d-flex flex-column flex-md-row">
         <!-- Product Image -->
         <div class="flex-shrink-0 mb-3 mb-md-0">
-          <img src="{{ selectedProduct?.item.imagePath }}" class="img-fluid" alt="Product Image" style="border-radius: 10px; height: auto; max-height: 250px;">
+          <img src="{{ selectedProduct?.item.imagePath }}" class="img-fluid" alt="Product Image"
+            style="border-radius: 10px; height: auto; max-height: 250px;">
         </div>
 
         <!-- Product Details (beside the image) -->
-        <div class="flex-grow-1 ms-md-4">
+        <div class="flex-grow-1 mx-4">
           <p>{{ selectedProduct?.item.description }}</p>
-          <p><strong>Price: </strong>{{ selectedProduct?.item.price | currency }}</p>
+          <p><strong>{{'Price' | translate}}: </strong>{{ selectedProduct?.item.price | currency }}</p>
 
           <!-- Quantity Controls -->
-          <div class="quantity-control d-flex justify-content-center align-items-center">
+          <div class="quantity-control d-flex justify-content-start align-items-center">
             <button class="btn btn-outline-danger btn-sm" (click)="decreaseQuantity(selectedProduct.item.id)">-</button>
 
-            <div type="number" #quantity class="form-control mx-2 quantity-input" style="max-width: 70px"
-              >{{selectedProduct.quantity}}</div>
+            <div type="number" #quantity class="form-control mx-2 quantity-input" style="max-width: 70px">
+              {{selectedProduct.quantity}}</div>
 
-            <button class="btn btn-sm btn-outline-success" (click)="increaseQuantity(selectedProduct.item.id)">+</button>
+            <button class="btn btn-sm btn-outline-success"
+              (click)="increaseQuantity(selectedProduct.item.id)">+</button>
           </div>
-          <p><strong>Total: </strong>{{ selectedProduct?.item.price * selectedProduct.quantity  | currency }}</p>
+
+         <p style="margin-top: 10px; margin-bottom: 0;"><strong >{{'Total' | translate}}: </strong>{{ selectedProduct?.item.price * selectedProduct.quantity |
+            currency }}</p>
         </div>
       </div>
       <div class="modal-footer" style="background-color: #ededed;">
@@ -63,12 +65,3 @@
     </div>
   </div>
 </div>
-
-<!-- <script>
-  $(document).ready (function () {
-  // Add draggable behavior to the modal content
-  $('.draggable').draggable({
-  handle: '.modal-header' // Drag using the modal header
-  });
-});
-  </script> -->

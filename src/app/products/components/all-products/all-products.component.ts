@@ -8,6 +8,7 @@ import { ProductsService } from '../../services/products.service';
 import { IProduct } from '../../models/IProduc';
 import { FormsModule } from '@angular/forms';
 import { CartComponent } from "../../../carts/components/cart/cart.component";
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-all-products',
@@ -19,7 +20,8 @@ import { CartComponent } from "../../../carts/components/cart/cart.component";
     ProductComponent,
     RouterModule,
     FormsModule,
-    CartComponent
+    CartComponent,
+    TranslateModule
 ],
   templateUrl: './all-products.component.html',
   styleUrls: ['./all-products.component.css'],
@@ -33,15 +35,14 @@ export class AllProductsComponent implements OnInit {
   selectedProduct: any;
   selectedQuantity: number = 1;
   showModal: boolean = false;
- parentevent = new EventEmitter();
-  constructor(private productsService: ProductsService) {
+  constructor(private productsService: ProductsService,public translate : TranslateService) {
   }
 
   ngOnInit(): void {
     this.getProducts();
     this.getCategories();
     this.getCartProducts();
-    this.parentevent.emit(this.cartProducts);
+
   }
 
   getProducts() {
@@ -177,7 +178,6 @@ export class AllProductsComponent implements OnInit {
       }
     });
     localStorage.setItem('cart', JSON.stringify(this.cartProducts));
-    this.parentevent.emit(this.cartProducts);
     this.calculateTotalAmount();
   }
 
@@ -201,7 +201,7 @@ export class AllProductsComponent implements OnInit {
         }
       });
     }
-    this.parentevent.emit(this.cartProducts);
+    this.cartProducts = [...this.cartProducts];
     localStorage.setItem('cart', JSON.stringify(this.cartProducts));
     this.calculateTotalAmount();
   }

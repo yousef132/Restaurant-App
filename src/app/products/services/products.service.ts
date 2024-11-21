@@ -23,4 +23,9 @@ export class ProductsService {
   getProducttById(id: any) {
     return this.http.get(this.productsUrl + '/' + id);
   }
+
+  createProdcut(order:any){
+    return this.http.post(this.productsUrl, order);
+
+  }
 }
