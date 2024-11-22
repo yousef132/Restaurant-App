@@ -21,13 +21,10 @@ constructor(public translate:TranslateService) {
 changeLang(lang: any) {
 
   const selectElement = lang.target.value;
-  console.log(selectElement);
-  console.log("selectElement");
-
+  localStorage.setItem('lang', selectElement);
   this.translate.use(selectElement);
   this.currentLang = selectElement;
-
-  localStorage.setItem('lang', selectElement);
+  location.reload();
 }
 
   toggleMenu() {

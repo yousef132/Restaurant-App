@@ -6,8 +6,8 @@
   >
     <div
       class="category-item d-flex flex-column justify-content-center align-items-center"
-      [class.active]="selectedCategory === item.name"
-      (click)="filter(item.name)"
+      [class.active]="selectedCategory === item.id"
+      (click)="filter(item.id)"
       *ngFor="let item of categories"
     >
       <img

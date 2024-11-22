@@ -43,6 +43,8 @@ export class AllProductsComponent implements OnInit {
     this.getCategories();
     this.getCartProducts();
 
+    console.log()
+
   }
 
   getProducts() {
@@ -50,6 +52,8 @@ export class AllProductsComponent implements OnInit {
 
     this.productsService.getAllProducts().subscribe({
       next: (data: any) => {
+        console.log(data);
+        console.log("all products")
         this.products = data;
         this.isLoading = false;
       },
@@ -159,8 +163,6 @@ export class AllProductsComponent implements OnInit {
 
   removeFromCart(id: any) {
     this.cartProducts = this.cartProducts.filter((ele) => ele.item.id !== id);
-    console.log(id);
-    console.log(this.cartProducts);
     this.calculateTotalAmount();
   }
 
@@ -168,7 +170,6 @@ export class AllProductsComponent implements OnInit {
     this.cartProducts.forEach((element) => {
       if (element.item.id == id) {
         if (element.quantity == 1) {
-          console.log('hereeeeeeeeeeeeee');
           this.removeFromCart(element.item.id);
           this.selectedProduct.quantity = 0;
         } else {
@@ -222,8 +223,7 @@ export class AllProductsComponent implements OnInit {
         element.quantity = amount;
       }
     });
-    console.log(typeof amount);
-    console.log('---');
+
     this.calculateTotalAmount();
     localStorage.setItem('cart', JSON.stringify(this.cartProducts));
   }

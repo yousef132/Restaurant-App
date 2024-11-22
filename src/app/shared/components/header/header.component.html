@@ -25,10 +25,10 @@
       </li>
       <li>
 
-      <select (click)="changeLang($event)" class="form-select" aria-label="Default select example">
-        <option selected>Select Language</option>
-        <option value="en">English</option>
-        <option value="ar">Arabic</option>
+      <select (change)="changeLang($event)"  class="form-select" aria-label="Default select example">
+        <option disabled selected value>Select Language</option>
+        <option  value="en">English</option>
+        <option  value="ar">Arabic</option>
       </select>
       </li>
 
