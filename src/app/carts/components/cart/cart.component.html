@@ -125,6 +125,7 @@
       </div>
     </div>
   </div>
+  <app-qr-code [qrData] = "qrData" *ngIf="showQrCode"></app-qr-code>
 
   <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
     <div class="mb-3 mb-md-0 text-center text-md-start">
@@ -152,5 +153,6 @@
     </div>
     <button class="btn btn-warning btn-lg  w-md-auto" (click)="orderNow()">{{'OrderNow' | translate}}</button>
   </div>
-
 </div>
+
+

@@ -8,7 +8,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterModule, SharedModule, FooterComponent,TranslateModule],
+  imports: [RouterOutlet, RouterModule, SharedModule,TranslateModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

@@ -1,14 +1,15 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { ProductsService } from '../../../products/services/products.service';
 import { CartsService } from '../../services/carts.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { QrCodeComponent } from "../../../qr-code/qr-code.component";
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [CommonModule, FormsModule,TranslateModule],
+  imports: [CommonModule, FormsModule, TranslateModule, QrCodeComponent],
   providers: [ProductsService],
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css'],
@@ -17,9 +18,13 @@ export class CartComponent implements OnInit, OnChanges {
   products: any;
   totalAmount: number = 0;
   orderCreated: boolean = false;
+  showQrCode: boolean = false;
+  @Output() qrData: any;
   @Input() cartProducts: any = [];
 
   constructor(private cartsService: CartsService,public translate :TranslateService) {
+    this.getCartProducts();
+    this.calculateTotalAmount();
 
   }
 
@@ -105,7 +110,8 @@ export class CartComponent implements OnInit, OnChanges {
         alert(err.error);
       },
     });
-
+    this.qrData = JSON.parse(localStorage.getItem('cart')!);
+    this.showQrCode = true;
     this.clearCart();
     this.calculateTotalAmount();
   }

@@ -1,0 +1,60 @@
+  <h2 class="text-center mb-4">Create Ingredient</h2>
+  <form (ngSubmit)="onSubmit()" class="px-3" [formGroup]="CreateForm">
+
+    <div class="row g-3">
+      <!-- Name -->
+      <div class="col-12 col-md-6">
+        <label for="name" class="form-label">Name</label>
+        <input
+          type="text"
+          id="name"
+          class="form-control"
+          formControlName="name"
+          placeholder="Name"
+          name="name"
+          required>
+      </div>
+
+      <!-- Unit -->
+      <div class="col-12 col-md-6">
+        <label for="unit" class="form-label">Unit</label>
+        <input
+          type="text"
+          id="unit"
+          class="form-control"
+          placeholder="Unit"
+          formControlName="unit"
+          required>
+      </div>
+    </div>
+
+    <div class="row g-3 mt-3">
+      <!-- Unit Cost -->
+      <div class="col-12 col-md-6">
+        <label for="unitCost" class="form-label">Unit Cost</label>
+        <input
+          type="number"
+          id="unitCost"
+          class="form-control"
+          placeholder="Unit Cost"
+          name="unitCost"
+          formControlName="unitCost"
+          required>
+      </div>
+      <!-- Quantity -->
+      <div class="col-12 col-md-6">
+        <label for="quantity" class="form-label">Quantity</label>
+        <input
+          type="number"
+          id="quantity"
+          class="form-control"
+          placeholder="Quantity"
+          name="quantity"
+          formControlName="quantity"
+          required>
+      </div>
+    </div>
+    <div class="text-center mt-4">
+      <button type="submit" class="btn btn-primary px-5">Submit</button>
+    </div>
+  </form>

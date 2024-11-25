@@ -11,19 +11,6 @@ export class ProductsService {
   private readonly filterWithCategoryUrl =
     'https://localhost:7203/api/Products/category/';
 
-  // specifyAcceptLanguageInHeader(headers: HttpHeaders) {
-  //   var language = localStorage.getItem('lang');
-  //   if (language == 'en') {
-  //     headers = new HttpHeaders({
-  //       'Accept-Language': 'en-US',
-  //     });
-  //   } else {
-  //     headers = new HttpHeaders({
-  //       'Accept-Language': 'ar-EG',
-  //     });
-  //   }
-  // }
-
   private getHeaders(): HttpHeaders {
     const language = localStorage.getItem('lang') || 'en'; // Default to 'en' if not set
     const acceptLanguage = language === 'en' ? 'en-US' : 'ar-EG';
@@ -60,9 +47,9 @@ return  new HttpHeaders({
     return this.http.get(this.productsUrl + '/' + id ,{headers:this.getHeaders()});
   }
 
-  createProdcut(order: any) {
+  createProdcut(product: any) {
     console.log(this.getHeaders());
-
-    return this.http.post(this.productsUrl, order,{headers:this.getHeaders()});
+    console.log(product);
+    return this.http.post(this.productsUrl, product,{headers:this.getHeaders()});
   }
 }

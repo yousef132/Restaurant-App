@@ -9,6 +9,8 @@ import { IProduct } from '../../models/IProduc';
 import { FormsModule } from '@angular/forms';
 import { CartComponent } from "../../../carts/components/cart/cart.component";
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { HeaderComponent } from "../../../shared/components/header/header.component";
+import { FooterComponent } from '../../../shared/components/Footer/footer/footer.component';
 
 @Component({
   selector: 'app-all-products',
@@ -21,7 +23,9 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
     RouterModule,
     FormsModule,
     CartComponent,
-    TranslateModule
+    TranslateModule,
+    HeaderComponent,
+    FooterComponent
 ],
   templateUrl: './all-products.component.html',
   styleUrls: ['./all-products.component.css'],

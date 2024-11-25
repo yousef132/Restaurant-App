@@ -1,0 +1,19 @@
+/* Optional: Styling for the dashboard container */
+.container-fluid {
+  padding: 0;
+  margin: 0;
+  height: 100vh; /* Full viewport height */
+}
+
+/* Optional: Full height sidebar */
+.app-nav-side {
+  height: 100vh;
+  background-color: #f8f9fa;
+  border-right: 1px solid #ddd;
+}
+
+/* Optional: Add some space for content inside the main area */
+.app-dashboardmain {
+  padding: 20px;
+  background-color: #f1f1f1;
+}

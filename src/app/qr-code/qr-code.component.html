@@ -1,0 +1,21 @@
+<div style="text-align: center;">
+  <!-- <input
+    type="text"
+    [(ngModel)]="qrData"
+    placeholder="Enter data"
+    style="padding: 5px;"
+  />
+  <button
+    (click)="generateQRCode()"
+    style="padding: 5px; margin: 10px;"
+  >
+    Generate
+  </button> -->
+  <div *ngIf="qrData">
+    <qrcode
+      [qrdata]="qrData"
+      [width]="200"
+      [errorCorrectionLevel]="'M'"
+    ></qrcode>
+  </div>
+</div>

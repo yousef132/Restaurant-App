@@ -20,6 +20,7 @@
     "@angular/router": "^18.2.0",
     "@ngx-translate/core": "^15.0.0",
     "@ngx-translate/http-loader": "^8.0.0",
+    "angularx-qrcode": "^19.0.0",
     "bootstrap": "^5.3.3",
     "file-saver": "^2.0.5",
     "ngx-translate-messageformat-compiler": "^6.5.1",
